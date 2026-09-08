@@ -13,11 +13,12 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-# Install dependencies first (better layer caching). We install the package
-# itself with its [api] extra, which pulls fastapi + jinja2 + uvicorn.
+# Install dependencies first (better layer caching). All runtime deps
+# (FastAPI + Jinja2 + uvicorn + DSPy) are declared in [project].dependencies,
+# so a plain install pulls the whole stack — no optional extras to forget.
 COPY pyproject.toml README.md ./
 COPY src ./src
-RUN pip install ".[api,llm]" uvicorn
+RUN pip install . uvicorn
 
 # Static frontend served by the app (StaticFiles) at "/".
 COPY public ./public

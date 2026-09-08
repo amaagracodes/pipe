@@ -6,18 +6,16 @@ authors = [{ name = "amaagracodes" }]
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
-dependencies = []
-
-# The core has zero runtime deps by design. The `api` extra pulls in the
-# serving layer (FastAPI app + Jinja2 templating + uvicorn ASGI server) used
-# to run pipe as an HTTP service (e.g. in a container on Cloud Run).
-[project.optional-dependencies]
-api = ["fastapi", "jinja2", "uvicorn"]
-# The `llm` extra pulls in DSPy, which brings its own LiteLLM-based client.
-# LiteLLM natively speaks OpenRouter via the ``openrouter/<model>`` prefix, so
-# no separate HTTP client is needed. This backs pipe.lib.providers.openrouter.
-# Kept optional so the pure ops/scoping engine installs without an LLM stack.
-llm = ["dspy>=3.3,<4"]
+# All runtime deps are installed together — one install path, no optional
+# extras to forget. The service (Cloud Run, real CPython) always needs the
+# serving layer (FastAPI/Jinja2/uvicorn) and the LLM backend (DSPy, which
+# brings its own LiteLLM client that speaks OpenRouter via openrouter/<model>).
+dependencies = [
+    "fastapi",
+    "jinja2",
+    "uvicorn",
+    "dspy>=3.3,<4",
+]
 
 [project.urls]
 Repository = "https://github.com/amaagracodes/pipe"
