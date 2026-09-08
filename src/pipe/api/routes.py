@@ -33,6 +33,87 @@ def register_routes(app: FastAPI) -> None:
             media_type="text/plain; charset=utf-8",
         )
 
+    # --- LLM (OpenRouter) -------------------------------------------------
+
+    @app.post("/llm", tags=["llm"])
+    async def llm(prompt: str, model: str = "openai/gpt-4o-mini", max_tokens: int = 256) -> dict:
+        """Test route: send a prompt to OpenRouter and return the completion.
+
+        Reads the key from $OPENROUTER_API_KEY (injected in the deployment).
+        Returns a 4xx-shaped JSON error rather than a 500 when the LLM stack or
+        key is unavailable, so it's safe to probe.
+        """
+        from fastapi import HTTPException
+
+        from pipe.lib.providers import OpenRouterProvider
+
+        provider = OpenRouterProvider(model=model, max_tokens=max_tokens)
+        try:
+            text = await provider.acall(prompt)
+        except ModuleNotFoundError as exc:
+            raise HTTPException(status_code=501, detail=str(exc)) from exc
+        except RuntimeError as exc:  # missing key
+            raise HTTPException(status_code=503, detail=str(exc)) from exc
+        except Exception as exc:  # upstream/LLM error — don't leak internals
+            raise HTTPException(status_code=502, detail=f"LLM call failed: {type(exc).__name__}") from exc
+        return {"model": provider.model, "prompt": prompt, "completion": text}
+
+    # --- legal atomic ops -------------------------------------------------
+
+    @app.get("/legal/ops", tags=["legal"])
+    async def legal_ops() -> dict:
+        """List the available atomic legal operations and rule categories."""
+        from pipe.lib import legal
+
+        return {
+            "operations": [
+                "detect_pii", "spot_clauses", "identify_statutes",
+                "extract_citations", "screen_privilege",
+            ],
+            "categories": sorted(legal.categories()),
+            "rule_count": len(legal.RULES),
+        }
+
+    @app.post("/legal/detect", tags=["legal"])
+    async def legal_detect(text: str, jurisdiction: str = "us", op: str = "detect_pii") -> dict:
+        """Run one atomic legal op over text for a given jurisdiction.
+
+        ``op`` is one of the names from ``GET /legal/ops``; ``jurisdiction`` is a
+        hierarchical code like ``us``, ``us/ny``, ``in/mh`` (optionally with
+        facets appended later). Returns the detections found.
+        """
+        from fastapi import HTTPException
+
+        from pipe.lib.legal import (
+            DetectPII, ExtractCitations, IdentifyStatutes, ScreenPrivilege, SpotClauses,
+        )
+
+        ops = {
+            "detect_pii": DetectPII,
+            "spot_clauses": SpotClauses,
+            "identify_statutes": IdentifyStatutes,
+            "extract_citations": ExtractCitations,
+            "screen_privilege": ScreenPrivilege,
+        }
+        op_cls = ops.get(op)
+        if op_cls is None:
+            raise HTTPException(status_code=400, detail=f"unknown op {op!r}; choose from {sorted(ops)}")
+        result = op_cls(jurisdiction)(text)
+        return {
+            "op": op,
+            "jurisdiction": jurisdiction,
+            "detections": [
+                {
+                    "kind": d.kind,
+                    "label": d.label,
+                    "severity": d.severity.name,
+                    "span": [d.span.start, d.span.end] if d.span else None,
+                }
+                for d in result.detections
+            ],
+            "meta": result.document.meta,
+        }
+
     @app.get("/status", response_class=HTMLResponse, include_in_schema=False)
     async def status(request: Request, data: str = "pong"):
         """Server-rendered (Jinja2) page — kept for dynamic, API-driven sites."""
