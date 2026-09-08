@@ -13,6 +13,11 @@ dependencies = []
 # to run pipe as an HTTP service (e.g. in a container on Cloud Run).
 [project.optional-dependencies]
 api = ["fastapi", "jinja2", "uvicorn"]
+# The `llm` extra pulls in DSPy, which brings its own LiteLLM-based client.
+# LiteLLM natively speaks OpenRouter via the ``openrouter/<model>`` prefix, so
+# no separate HTTP client is needed. This backs pipe.lib.providers.openrouter.
+# Kept optional so the pure ops/scoping engine installs without an LLM stack.
+llm = ["dspy>=3.3,<4"]
 
 [project.urls]
 Repository = "https://github.com/amaagracodes/pipe"

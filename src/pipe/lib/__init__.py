@@ -12,6 +12,10 @@ and are re-exported here for a flat import surface. Two ways to use an op:
     layer.
   * the flat helpers — ``echo`` / ``echo_stream`` remain as functions for
     callers that just want data in, data out.
+
+Higher layers build on this: the generic modules :mod:`~pipe.lib.shared`,
+:mod:`~pipe.lib.providers`, :mod:`~pipe.lib.experts`, :mod:`~pipe.lib.detectors`,
+and the domain operations in :mod:`~pipe.lib.legal`.
 """
 
 from pipe.lib.core import (
