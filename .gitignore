@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+
+# Cloud Run / Docker
+.dockerignore.local
+
+# Local env (never commit — may hold secrets)
+.env
+
+# macOS
+.DS_Store
+
+# Note: uv.lock is intentionally tracked (not ignored)

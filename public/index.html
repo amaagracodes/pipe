@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>pipe-broker — atomic translation ops</title>
+  <meta name="description" content="Atomic, data-in/data-out operations for multilingual translation and domain-expertise knowledge export. Stateless. Integrate anywhere." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="brand" href="./">
+      <span class="brand-mark">⇥</span> pipe<span class="brand-dim">-broker</span>
+    </a>
+    <nav class="nav-links">
+      <a href="docs">API Docs</a>
+      <a href="redoc">ReDoc</a>
+      <a href="https://github.com/amaagracodes/pipe" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="pill">data-in · data-out</span>
+      <h1>Atomic operations for<br /><span class="grad">translation &amp; knowledge export</span></h1>
+      <p class="sub">
+        A stateless broker of pure, composable ops. Import it as a Python library,
+        or serve it at the edge as a Cloudflare Worker. Same core — no rewrite.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="docs">Explore the API</a>
+        <a class="btn ghost" href="#demo">Try it live</a>
+      </div>
+      <div class="meta">
+        <code>pip install pipe-broker</code>
+        <span class="dot">•</span>
+        <code>import pipe</code>
+      </div>
+    </section>
+
+    <section id="demo" class="demo">
+      <h2>Live demo</h2>
+      <p class="demo-sub">Both request styles are first-class: a buffered JSON response and an incremental data stream.</p>
+
+      <div class="panel">
+        <label for="input">Input data</label>
+        <input id="input" type="text" value="the quick brown fox jumps over the lazy dog"
+               autocomplete="off" spellcheck="false" />
+        <div class="panel-actions">
+          <button id="btn-buffered" class="btn primary">GET /echo <span class="tag">buffered</span></button>
+          <button id="btn-stream" class="btn ghost">GET /echo/stream <span class="tag">streamed</span></button>
+          <label class="chunk">chunk
+            <input id="chunk" type="number" min="1" max="64" value="4" />
+          </label>
+        </div>
+        <pre id="output" class="output" aria-live="polite">↳ output appears here</pre>
+      </div>
+    </section>
+
+    <section class="cards">
+      <article class="card">
+        <h3>Pure core</h3>
+        <p>Ops are pure functions — no I/O, no state, no framework. Zero runtime dependencies, so they run anywhere Python does.</p>
+      </article>
+      <article class="card">
+        <h3>Sync &amp; async streaming</h3>
+        <p>Buffered ops for simple calls; async generators for token-by-token streaming responses over the same interface.</p>
+      </article>
+      <article class="card">
+        <h3>Edge-ready</h3>
+        <p>A thin FastAPI adapter runs as a Cloudflare Python Worker. The platform is a swappable detail behind the core.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>pipe-broker</span>
+    <span class="dot">•</span>
+    <span>stateless · composable · integrate anywhere</span>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

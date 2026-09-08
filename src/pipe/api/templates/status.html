@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>pipe-broker · status</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+  <main>
+    <section class="hero">
+      <span class="pill">server-rendered</span>
+      <h1 class="grad">pipe-broker status</h1>
+      <p class="sub">
+        This page is rendered server-side from a Jinja2 template — the path we
+        keep for dynamic, API-driven pages.
+      </p>
+      <div class="panel" style="max-width:32rem;margin:0 auto;text-align:left">
+        <p><strong>Version:</strong> {{ version }}</p>
+        <p><strong>Echoed value:</strong> {{ echoed }}</p>
+        <p><strong>Ops available:</strong>
+          {% for op in ops %}<code>{{ op }}</code>{% if not loop.last %}, {% endif %}{% endfor %}
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

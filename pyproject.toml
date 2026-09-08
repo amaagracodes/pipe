@@ -1,0 +1,34 @@
+[project]
+name = "pipe-broker"
+version = "0.1.0"
+description = "Atomic, data-in/data-out operations for multilingual translation and domain-expertise knowledge export."
+authors = [{ name = "amaagracodes" }]
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = []
+
+# The core has zero runtime deps by design. The `api` extra pulls in the
+# serving layer (FastAPI app + Jinja2 templating + uvicorn ASGI server) used
+# to run pipe as an HTTP service (e.g. in a container on Cloud Run).
+[project.optional-dependencies]
+api = ["fastapi", "jinja2", "uvicorn"]
+
+[project.urls]
+Repository = "https://github.com/amaagracodes/pipe"
+
+# Dev-only tooling (uv reads this): tests + a local ASGI runner.
+[dependency-groups]
+dev = ["pytest>=8", "uvicorn>=0.30"]
+
+[build-system]
+requires = ["poetry-core>=2.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [{ include = "pipe", from = "src" }]
+
+
+[tool.pytest.ini_options]
+# Do not write .pytest_cache or __pycache__ during test runs.
+addopts = "-p no:cacheprovider"

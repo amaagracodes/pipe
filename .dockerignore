@@ -1,0 +1,16 @@
+# Keep the build context small and clean.
+.git
+.github
+.venv
+.venv-workers
+__pycache__
+*.pyc
+.pytest_cache
+dist
+build
+*.egg-info
+.env
+.DS_Store
+node_modules
+uv.lock
+pylock.toml
