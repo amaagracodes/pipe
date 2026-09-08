@@ -10,19 +10,24 @@ env:
   REGION: ${{ vars.GCP_REGION }}          # e.g. us-central1
   PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
 
+# Required for Workload Identity Federation (keyless auth via OIDC).
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      # Authenticate to Google Cloud. Provide EITHER:
-      #   - secrets.GCP_SA_KEY  (a service-account JSON key), or
-      #   - Workload Identity Federation (recommended; set workload_identity_provider)
+      # Keyless auth: GitHub's OIDC token is exchanged for short-lived GCP
+      # credentials via Workload Identity Federation. No service-account keys.
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          credentials_json: ${{ secrets.GCP_SA_KEY }}
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_DEPLOY_SA }}
 
       - name: Set up gcloud
         uses: google-github-actions/setup-gcloud@v2
@@ -35,4 +40,5 @@ jobs:
             --region "$REGION" \
             --source . \
             --allow-unauthenticated \
-            --port 8080
+            --port 8080 \
+            --memory 512Mi
