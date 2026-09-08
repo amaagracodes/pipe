@@ -11,7 +11,7 @@ The static frontend (public/) is mounted last at "/" so API routes and /docs
 take priority; index.html is served at "/".
 """
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, UploadFile
 from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
@@ -113,6 +113,39 @@ def register_routes(app: FastAPI) -> None:
             ],
             "meta": result.document.meta,
         }
+
+    # --- speech-to-text (OpenRouter) --------------------------------------
+
+    @app.post("/stt", tags=["llm"])
+    async def stt(
+        file: UploadFile,
+        model: str = "openai/whisper-large-v3",
+        language: str | None = None,
+    ) -> dict:
+        """Transcribe an uploaded audio file to text (audio bytes in, text out).
+
+        Accepts a multipart file upload; the audio format is inferred from the
+        filename extension (falls back to ``wav``). Reads the key from
+        $OPENROUTER_API_KEY. Errors map like /llm (503 missing key, 502 upstream).
+        """
+        from fastapi import HTTPException
+
+        from pipe.lib.providers import STT
+
+        audio = await file.read()
+        # Derive the container format from the upload's extension.
+        fmt = "wav"
+        if file.filename and "." in file.filename:
+            fmt = file.filename.rsplit(".", 1)[-1].lower()
+
+        provider = STT(model=model, language=language)
+        try:
+            text = await provider.acall(audio, format=fmt)
+        except RuntimeError as exc:  # missing key
+            raise HTTPException(status_code=503, detail=str(exc)) from exc
+        except Exception as exc:  # upstream/transcription error — don't leak internals
+            raise HTTPException(status_code=502, detail=f"STT call failed: {type(exc).__name__}") from exc
+        return {"model": provider.model, "format": fmt, "text": text}
 
     @app.get("/status", response_class=HTMLResponse, include_in_schema=False)
     async def status(request: Request, data: str = "pong"):
