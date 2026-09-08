@@ -1,4 +1,4 @@
-"""pipe.lib.legal.catalog — legal knowledge as scoped data.
+"""pipe.lib.experts.legal.catalog — legal knowledge as scoped data.
 
 Every rule is registered into a generic
 :class:`~pipe.lib.shared.ScopedRegistry` with (a) the :class:`Scope` it applies
@@ -23,7 +23,7 @@ Patterns are pragmatic starting points, not legal advice; tune per matter.
 from __future__ import annotations
 
 from pipe.lib.detectors import Rule
-from pipe.lib.legal.authority import Authority
+from pipe.lib.experts.legal.authority import Authority
 from pipe.lib.shared import Scope, ScopedRegistry, Severity
 
 __all__ = ["RULES", "categories"]

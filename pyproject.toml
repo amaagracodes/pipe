@@ -17,6 +17,7 @@ dependencies = [
     "dspy>=3.3,<4",
     "httpx",
     "python-multipart",
+    "babel",
 ]
 
 [project.urls]

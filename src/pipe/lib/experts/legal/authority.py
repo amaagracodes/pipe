@@ -1,4 +1,4 @@
-"""pipe.lib.legal.authority — the legal source hierarchy, as ranks.
+"""pipe.lib.experts.legal.authority — the legal source hierarchy, as ranks.
 
 Authority is a plain integer rank used by the generic
 :class:`~pipe.lib.shared.ScopedRegistry` to order/override rules. It encodes the

@@ -11,8 +11,15 @@ Built on :mod:`pipe.lib.core`. Exposes:
     resolved by specificity + authority — nothing domain-specific.
 """
 
+from pipe.lib.shared.context import (
+    FinancialRequestContext,
+    GeoRequestContext,
+    LegalRequestContext,
+    RequestContext,
+)
 from pipe.lib.shared.interface import SharedPipe
 from pipe.lib.shared.jurisdiction import ANY, Jurisdiction
+from pipe.lib.shared.locale import UND, Locale
 from pipe.lib.shared.registry import ScopedRegistry
 from pipe.lib.shared.scope import Scope, Scoped
 from pipe.lib.shared.types import (
@@ -38,4 +45,12 @@ __all__ = [
     "Scope",
     "Scoped",
     "ScopedRegistry",
+    # i18n
+    "Locale",
+    "UND",
+    # request context hierarchy
+    "RequestContext",
+    "FinancialRequestContext",
+    "LegalRequestContext",
+    "GeoRequestContext",
 ]

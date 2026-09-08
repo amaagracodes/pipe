@@ -63,7 +63,7 @@ def register_routes(app: FastAPI) -> None:
     @app.get("/legal/ops", tags=["legal"])
     async def legal_ops() -> dict:
         """List the available atomic legal operations and rule categories."""
-        from pipe.lib import legal
+        from pipe.lib.experts import legal
 
         return {
             "operations": [
@@ -84,7 +84,7 @@ def register_routes(app: FastAPI) -> None:
         """
         from fastapi import HTTPException
 
-        from pipe.lib.legal import (
+        from pipe.lib.experts.legal import (
             DetectPII, ExtractCitations, IdentifyStatutes, ScreenPrivilege, SpotClauses,
         )
 

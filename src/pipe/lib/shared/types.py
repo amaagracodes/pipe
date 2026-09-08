@@ -17,6 +17,8 @@ from dataclasses import dataclass, field, replace
 from enum import IntEnum
 from typing import Any
 
+from pipe.lib.shared.locale import Locale
+
 __all__ = ["Severity", "Span", "Detection", "Document", "Prediction"]
 
 # NOTE: jurisdiction is NOT a flat enum. Law varies hierarchically (country ->
@@ -65,14 +67,25 @@ class Detection:
 
 @dataclass(frozen=True, slots=True)
 class Document:
-    """The primary data payload flowing through a pipe: text plus metadata."""
+    """The primary data payload flowing through a pipe: text plus metadata.
+
+    ``locale`` (optional) records the language/region of the text so downstream
+    pipes can respect it; it flows through a chain alongside the text. ``None``
+    means unspecified (a handler may fall back to the ambient RequestContext).
+    """
 
     text: str
     meta: dict[str, Any] = field(default_factory=dict)
+    locale: "Locale | None" = None
 
     def with_text(self, text: str) -> "Document":
         """Return a copy with replaced text (immutability-friendly transform)."""
         return replace(self, text=text, meta=dict(self.meta))
+
+    def with_locale(self, locale: "str | Locale") -> "Document":
+        """Return a copy tagged with a locale (coerced from a string tag)."""
+        loc = locale if isinstance(locale, Locale) else Locale.parse(locale)
+        return replace(self, locale=loc, meta=dict(self.meta))
 
 
 @dataclass(frozen=True, slots=True)

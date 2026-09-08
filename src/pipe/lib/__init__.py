@@ -15,7 +15,7 @@ and are re-exported here for a flat import surface. Two ways to use an op:
 
 Higher layers build on this: the generic modules :mod:`~pipe.lib.shared`,
 :mod:`~pipe.lib.providers`, :mod:`~pipe.lib.experts`, :mod:`~pipe.lib.detectors`,
-and the domain operations in :mod:`~pipe.lib.legal`.
+and the domain operations in :mod:`~pipe.lib.experts.legal`.
 """
 
 from pipe.lib.core import (

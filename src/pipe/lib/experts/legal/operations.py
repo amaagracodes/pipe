@@ -1,4 +1,4 @@
-"""pipe.lib.legal.operations — atomic legal operations, one act per pipe.
+"""pipe.lib.experts.legal.operations — atomic legal operations, one act per pipe.
 
 Each class here is a single :class:`~pipe.lib.core.Pipe` that performs *one*
 act a legal professional does — detect PII, spot clauses, screen for privilege,
@@ -24,7 +24,7 @@ from typing import Callable, Iterable
 
 from pipe.lib.detectors import Rule
 from pipe.lib.experts.interface import ExpertPipe
-from pipe.lib.legal.catalog import RULES
+from pipe.lib.experts.legal.catalog import RULES
 from pipe.lib.shared import (
     ANY,
     Detection,

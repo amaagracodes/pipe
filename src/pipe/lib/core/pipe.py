@@ -17,6 +17,7 @@ from pipe.lib.core.base import BasePipe, PipeMeta
 
 if TYPE_CHECKING:
     from pipe.lib.core.chain import Chain
+    from pipe.lib.shared.context import RequestContext
 
 __all__ = ["Pipe"]
 
@@ -85,6 +86,40 @@ class Pipe(BasePipe, metaclass=PipeMeta):
     def astream(self, *args: Any, **kwargs: Any) -> AsyncIterator[Any]:
         """Invoke the pipe as a stream (routes to :meth:`stream`)."""
         return self.stream(*args, **kwargs)
+
+    # --- ambient request context ------------------------------------------
+
+    @staticmethod
+    def context(ctx: "RequestContext"):
+        """Set an ambient :class:`RequestContext` for the ``with`` block.
+
+        Any pipe running inside — including nested pipes in a ``Chain`` — can
+        read it via :meth:`ctx` / :meth:`require_context` without being passed
+        anything::
+
+            with Pipe.context(FinancialRequestContext(locale="hi-IN", currency="INR")):
+                pipeline(data)
+        """
+        from pipe.lib.core.context import use_context
+
+        return use_context(ctx)
+
+    def ctx(self) -> "RequestContext | None":
+        """The ambient context, or ``None`` if none is set."""
+        from pipe.lib.core.context import current_context
+
+        return current_context()
+
+    def require_context(self, kind: "type[RequestContext]") -> "RequestContext":
+        """Return the ambient context asserting it is ``kind`` (else raise).
+
+        Domain pipes call this to demand the context they need — e.g. a money
+        formatter requires a ``FinancialRequestContext`` and errors clearly if
+        one wasn't provided.
+        """
+        from pipe.lib.core.context import require_context
+
+        return require_context(kind)
 
     # --- chaining: one pipe's output feeds the next -----------------------
 
