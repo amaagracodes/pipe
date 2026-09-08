@@ -9,8 +9,8 @@ One top-level package with two parts:
     (``from pipe.api.app import create_app``) with the ``[api]`` extra installed.
 """
 
-from pipe.lib import echo, echo_stream
+from pipe.lib import Chain, Echo, EchoStream, Pipe, echo, echo_stream
 
-__all__ = ["echo", "echo_stream"]
+__all__ = ["Pipe", "Chain", "Echo", "EchoStream", "echo", "echo_stream"]
 
 __version__ = "0.1.0"
