@@ -17,7 +17,7 @@ WORKDIR /app
 # itself with its [api] extra, which pulls fastapi + jinja2 + uvicorn.
 COPY pyproject.toml README.md ./
 COPY src ./src
-RUN pip install ".[api]" uvicorn
+RUN pip install ".[api,llm]" uvicorn
 
 # Static frontend served by the app (StaticFiles) at "/".
 COPY public ./public
