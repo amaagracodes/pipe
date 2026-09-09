@@ -19,6 +19,9 @@ jobs:
       # Required for Trusted Publishing: lets the job mint an OIDC token that
       # PyPI exchanges for a short-lived upload credential.
       id-token: write
+      # Declaring any permissions defaults all others to none; the private
+      # repo checkout needs read access to contents.
+      contents: read
     steps:
       # Full history so we can check which branch contains the tagged commit.
       - uses: actions/checkout@v4
