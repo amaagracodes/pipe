@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.templating import Jinja2Templates
 
 import pipe
@@ -46,6 +47,22 @@ def create_app() -> FastAPI:
             "and domain-expertise knowledge export."
         ),
         root_path=root_path,
+    )
+
+    # CORS: allow browser requests from amaagra.com and any of its subdomains
+    # (e.g. pipe.amaagra.com). The regex form is used because CORSMiddleware's
+    # allow_origins list does not support wildcard subdomains. Override the
+    # pattern with PIPE_ALLOWED_ORIGIN_REGEX if a different origin set is needed.
+    allow_origin_regex = os.environ.get(
+        "PIPE_ALLOWED_ORIGIN_REGEX",
+        r"https://([a-z0-9-]+\.)*amaagra\.com",
+    )
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origin_regex=allow_origin_regex,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
     )
 
     # Routes are registered separately to keep concerns split.
