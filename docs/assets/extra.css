@@ -1,0 +1,22 @@
+/* Small tweaks on top of Material. Kept minimal — "nothing showy." */
+
+#pipe-demo {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .4rem;
+  padding: 1rem 1.1rem;
+  margin: 1rem 0;
+}
+
+#pipe-demo-out {
+  background: var(--md-code-bg-color);
+  color: var(--md-code-fg-color);
+  font-size: .8rem;
+  line-height: 1.6;
+}
+
+/* Tighten the method labels used in the API reference tables. */
+.pipe-method {
+  font-family: var(--md-code-font-family);
+  font-weight: 700;
+  font-size: .75em;
+}

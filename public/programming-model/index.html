@@ -10,37 +10,36 @@
       
       
       
-        <link rel="canonical" href="https://github.com/amaagracodes/pipe/">
+        <link rel="canonical" href="https://github.com/amaagracodes/pipe/programming-model/">
       
       
+        <link rel="prev" href="../install/">
       
-        <link rel="next" href="install/">
+      
+        <link rel="next" href="../diving-deeper/architecture/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>pipe</title>
+        <title>Programming model - pipe</title>
       
     
     
-  
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
 
     
-  <link rel="stylesheet" href="assets/home.css">
-
     
       
     
@@ -54,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/extra.css">
+      <link rel="stylesheet" href="../assets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#programming-model" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -94,7 +98,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="pipe" class="md-header__button md-logo" aria-label="pipe" data-md-component="logo">
+    <a href=".." title="pipe" class="md-header__button md-logo" aria-label="pipe" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Programming model
             
           </span>
         </div>
@@ -225,11 +229,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -246,11 +248,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="install/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../install/" class="md-tabs__link">
           
   
   
@@ -272,7 +276,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="diving-deeper/architecture/" class="md-tabs__link">
+        <a href="../diving-deeper/architecture/" class="md-tabs__link">
           
   
   
@@ -294,7 +298,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="tutorials/" class="md-tabs__link">
+        <a href="../tutorials/" class="md-tabs__link">
           
   
   
@@ -316,7 +320,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/" class="md-tabs__link">
+        <a href="../api/" class="md-tabs__link">
           
   
   
@@ -341,9 +345,7 @@
           
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -354,7 +356,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="pipe" class="md-nav__button md-logo" aria-label="pipe" data-md-component="logo">
+    <a href=".." title="pipe" class="md-nav__button md-logo" aria-label="pipe" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -381,17 +383,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -407,7 +402,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -416,8 +410,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -429,19 +425,20 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -459,7 +456,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -477,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/" class="md-nav__link">
+      <a href="../install/" class="md-nav__link">
         
   
   
@@ -502,10 +499,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="programming-model/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming model
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -521,6 +545,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ambient-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ambient context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prediction-envelope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prediction envelope
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -604,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="diving-deeper/architecture/" class="md-nav__link">
+      <a href="../diving-deeper/architecture/" class="md-nav__link">
         
   
   
@@ -632,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="diving-deeper/pipes-and-chains/" class="md-nav__link">
+      <a href="../diving-deeper/pipes-and-chains/" class="md-nav__link">
         
   
   
@@ -660,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="diving-deeper/context-and-scope/" class="md-nav__link">
+      <a href="../diving-deeper/context-and-scope/" class="md-nav__link">
         
   
   
@@ -688,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="diving-deeper/prediction-envelope/" class="md-nav__link">
+      <a href="../diving-deeper/prediction-envelope/" class="md-nav__link">
         
   
   
@@ -716,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="diving-deeper/extending/" class="md-nav__link">
+      <a href="../diving-deeper/extending/" class="md-nav__link">
         
   
   
@@ -782,7 +870,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="tutorials/" class="md-nav__link ">
+            <a href="../tutorials/" class="md-nav__link ">
               
   
   
@@ -826,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/first-op/" class="md-nav__link">
+      <a href="../tutorials/first-op/" class="md-nav__link">
         
   
   
@@ -854,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/streaming/" class="md-nav__link">
+      <a href="../tutorials/streaming/" class="md-nav__link">
         
   
   
@@ -882,7 +970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/composing/" class="md-nav__link">
+      <a href="../tutorials/composing/" class="md-nav__link">
         
   
   
@@ -910,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/legal-pipeline/" class="md-nav__link">
+      <a href="../tutorials/legal-pipeline/" class="md-nav__link">
         
   
   
@@ -972,7 +1060,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="api/" class="md-nav__link ">
+            <a href="../api/" class="md-nav__link ">
               
   
   
@@ -1016,7 +1104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/library/" class="md-nav__link">
+      <a href="../api/library/" class="md-nav__link">
         
   
   
@@ -1044,7 +1132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/rest/" class="md-nav__link">
+      <a href="../api/rest/" class="md-nav__link">
         
   
   
@@ -1080,9 +1168,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1091,6 +1177,60 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ambient-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ambient context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prediction-envelope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prediction envelope
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1103,191 +1243,106 @@
               
                 
 
+
+
   
 
 
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href=".." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Overview
+  </span>
 
+      </a>
+    </li>
   
 
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../install/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
 
               
               <article class="md-content__inner md-typeset">
                 
-<div class="pipe-home">
+                  
 
-  <!-- ===== HERO ===== -->
-  <section class="hp-section hp-hero">
-    <div class="hp-container hp-hero-grid">
-      <div class="hp-hero-text">
-        <div class="hp-hero-badge">
-          <span class="hp-dot"></span>
-          pipe 0.1.0 &mdash; atomic, data-in / data-out ops
-        </div>
 
-        <h1 class="hp-hero-title">
-          <span class="hp-hl">Compose</span>, don&rsquo;t glue,<br>your operations.
-        </h1>
+  
+  
 
-        <p class="hp-hero-sub">
-          <!-- TODO: hero subtitle -->
-          A pure, dependency-free core of atomic operations that compose into
-          chains. Import it as a library, or serve that same core as an API on
-          your own cloud &mdash; no rewrite.
-        </p>
 
-        <div class="hp-hero-actions">
-          <a href="install/" class="hp-btn-primary">
-            <span class="hp-dollar">$</span> pip install pipe-broker
-          </a>
-          <a href="programming-model/" class="hp-btn-outline">
-            Getting Started &rarr;
-          </a>
-        </div>
+<h1 id="programming-model">Programming model<a class="headerlink" href="#programming-model" title="Permanent link">&para;</a></h1>
+<p>TODO: one line — Pipe reproduces DSPy&rsquo;s split of a structural layer and a
+behavioural layer.</p>
+<h2 id="pipe">Pipe<a class="headerlink" href="#pipe" title="Permanent link">&para;</a></h2>
+<p>TODO: a <code>Pipe</code> is the atomic callable. Subclasses implement <code>forward</code> (sync),
+and optionally <code>aforward</code> (async) and <code>stream</code> (incremental). One calling
+convention: <code>__call__</code> → forward, <code>acall</code> → aforward, <code>astream</code> → stream.
+Never call <code>forward</code> directly.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Upper</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">Pipe</span><span class="p">):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">Upper</span><span class="p">()(</span><span class="s2">"hi"</span><span class="p">)</span>  <span class="c1"># 'HI'</span>
+</code></pre></div>
+<h2 id="chain">Chain<a class="headerlink" href="#chain" title="Permanent link">&para;</a></h2>
+<p>TODO: sequencing lives only in <code>Chain</code>. Compose with <code>&gt;&gt;</code> (or <code>.then(...)</code>);
+chaining flattens, so <code>a &gt;&gt; b &gt;&gt; c</code> is one chain of three. Output of each stage
+feeds the next.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">pipeline</span> <span class="o">=</span> <span class="n">DetectPII</span><span class="p">(</span><span class="s2">"us"</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">Redact</span><span class="p">()</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">pipeline</span><span class="p">(</span><span class="s2">"call me at 555-123-4567"</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="ambient-context">Ambient context<a class="headerlink" href="#ambient-context" title="Permanent link">&para;</a></h2>
+<p>TODO: cross-cutting request data (locale, jurisdiction, currency, lat/lon)
+travels ambiently through a <code>contextvars</code> stack instead of every signature.
+Enter it with a <code>with</code> block.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">with</span> <span class="n">pipe</span><span class="o">.</span><span class="n">Pipe</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="n">LegalRequestContext</span><span class="p">(</span><span class="n">jurisdiction</span><span class="o">=</span><span class="s2">"us/ny"</span><span class="p">)):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">detect</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="prediction-envelope">Prediction envelope<a class="headerlink" href="#prediction-envelope" title="Permanent link">&para;</a></h2>
+<p>TODO: every domain pipe speaks one currency — a <code>Prediction</code> wrapping a
+<code>Document</code> and a list of <code>Detection</code>s. Uniform in, uniform out, so ops compose
+freely.</p>
 
-        <div class="hp-hero-meta">
-          <span><strong>python</strong> &ge; 3.11</span>
-          <span>MIT license</span>
-          <span><a href="https://github.com/amaagracodes/pipe">github.com/amaagracodes/pipe</a></span>
-        </div>
-      </div>
 
-      <!-- Code window doubles as the live demo -->
-      <div class="hp-hero-code">
-        <div class="hp-code-window">
-          <div class="hp-code-chrome">
-            <div class="hp-dots"><span></span><span></span><span></span></div>
-            <div class="hp-code-title"><strong>try it — GET /echo</strong></div>
-          </div>
-          <div class="hp-code-body" id="pipe-demo">
-            <label for="pipe-demo-input" class="hp-demo-label">Input data</label>
-            <input id="pipe-demo-input" type="text" value="the quick brown fox"
-                   autocomplete="off" spellcheck="false" class="hp-demo-input" />
-            <div class="hp-demo-actions">
-              <button id="pipe-demo-buffered" class="hp-btn-primary hp-btn-sm">GET /echo</button>
-              <button id="pipe-demo-stream" class="hp-btn-outline hp-btn-sm">GET /echo/stream</button>
-              <label class="hp-demo-chunk">chunk
-                <input id="pipe-demo-chunk" type="number" min="1" max="64" value="4" />
-              </label>
-            </div>
-            <pre id="pipe-demo-out" class="hp-demo-out" aria-live="polite">&#8617; output appears here</pre>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== THREE PRIMITIVES ===== -->
-  <section class="hp-section hp-features">
-    <div class="hp-container">
-      <h2 class="hp-section-title">
-        Build systems from reusable <span class="hp-hl">primitives</span>.
-      </h2>
 
-      <div class="hp-features-grid">
-        <!-- Pipe -->
-        <div class="hp-feature">
-          <h3>Pipe</h3>
-          <div class="hp-feature-tagline">One op, one job.</div>
-          <p>
-            <!-- TODO -->
-            A pure function with a single responsibility &mdash; no I/O, no
-            state, no framework. Runs anywhere Python does.
-          </p>
-          <div class="hp-feature-cta">
-            <a href="programming-model/" class="hp-cta-link">Programming model &rarr;</a>
-          </div>
-          <div class="hp-feature-code">
-            <div class="line"><span class="tok-k">class</span> <span class="tok-t">Upper</span>(pipe.Pipe):</div>
-            <div class="line">    <span class="tok-k">def</span> <span class="tok-m">forward</span>(self, data: <span class="tok-t">str</span>) -&gt; <span class="tok-t">str</span>:</div>
-            <div class="line">        <span class="tok-k">return</span> data.upper()</div>
-          </div>
-        </div>
 
-        <!-- Chain -->
-        <div class="hp-feature">
-          <h3>Chain</h3>
-          <div class="hp-feature-tagline">Compose with <code>&gt;&gt;</code>.</div>
-          <p>
-            <!-- TODO -->
-            Sequencing lives only in a chain. Output of each stage feeds the
-            next; ops never learn about each other.
-          </p>
-          <div class="hp-feature-cta">
-            <a href="tutorials/composing/" class="hp-cta-link">Composing &rarr;</a>
-          </div>
-          <div class="hp-feature-code">
-            <div class="line"><span class="tok-cm"># detect, then redact</span></div>
-            <div class="line">pipeline = DetectPII(<span class="tok-s">"us"</span>) &gt;&gt; Redact()</div>
-            <div class="line">pipeline(text)</div>
-          </div>
-        </div>
 
-        <!-- Experts -->
-        <div class="hp-feature">
-          <h3>Experts</h3>
-          <div class="hp-feature-tagline">Domain expertise as ops.</div>
-          <p>
-            <!-- TODO -->
-            Jurisdiction-aware domain ops over one uniform envelope. Legal
-            today; more domains to come.
-          </p>
-          <div class="hp-feature-cta">
-            <a href="tutorials/legal-pipeline/" class="hp-cta-link">A legal pipeline &rarr;</a>
-          </div>
-          <div class="hp-feature-code">
-            <div class="line"><span class="tok-k">from</span> pipe.lib.experts.legal <span class="tok-k">import</span> DetectPII</div>
-            <div class="line">&nbsp;</div>
-            <div class="line">DetectPII(<span class="tok-s">"us/ny"</span>)(contract)</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== TWO SURFACES ===== -->
-  <section class="hp-section hp-ecosystem">
-    <div class="hp-container">
-      <div class="hp-eco-grid">
-        <div class="hp-eco-left">
-          <h2 class="hp-eco-title">
-            Same core. <span class="hp-hl">Two surfaces.</span>
-          </h2>
-          <p class="hp-eco-desc">
-            <!-- TODO -->
-            Import pipe as a Python library, or serve that exact same core as an
-            HTTP API on your own infrastructure. No rewrite, no lock-in &mdash;
-            you own the keys, the data boundary, and the deployment.
-          </p>
-          <div class="hp-hero-actions">
-            <a href="api/library/" class="hp-btn-outline">Library &rarr;</a>
-            <a href="api/rest/" class="hp-btn-outline">REST API &rarr;</a>
-          </div>
-        </div>
-        <div class="hp-eco-right">
-          <h3>Serve it anywhere</h3>
-          <div class="hp-built-grid">
-            <div class="hp-built-item">
-              <div class="hp-built-name">Edge</div>
-              <div class="hp-built-blurb">Cloudflare Python Worker &mdash; pure ops at the edge</div>
-            </div>
-            <div class="hp-built-item">
-              <div class="hp-built-name">Container</div>
-              <div class="hp-built-blurb">Cloud Run, ECS, Fly &mdash; the shipped Dockerfile</div>
-            </div>
-            <div class="hp-built-item">
-              <div class="hp-built-name">Anywhere</div>
-              <div class="hp-built-blurb">It&rsquo;s just an ASGI app &mdash; any box that runs Python</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-</div>
 
-<script src="assets/demo.js" defer></script>
 
+
+
+                
               </article>
             </div>
           
@@ -1309,19 +1364,33 @@
   
     
       
-        
-      
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../install/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Installation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Installation
+              </div>
+            </div>
+          </a>
         
         
           
-          <a href="install/" class="md-footer__link md-footer__link--next" aria-label="Next: Installation">
+          <a href="../diving-deeper/architecture/" class="md-footer__link md-footer__link--next" aria-label="Next: Architecture">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Installation
+                Architecture
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1378,10 +1447,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.expand", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "navigation.footer"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "0.1.0"}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.expand", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "0.1.0"}</script>
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

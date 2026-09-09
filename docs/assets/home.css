@@ -1,0 +1,96 @@
+/* pipe homepage — hero + primitives, in the spirit of the DSPy landing page.
+   Uses Material's CSS variables so it follows the light/dark palette. */
+
+.pipe-home {
+  --hp-fg: var(--md-default-fg-color);
+  --hp-fg-2: var(--md-default-fg-color--light);
+  --hp-fg-3: var(--md-default-fg-color--lighter);
+  --hp-bg-2: var(--md-code-bg-color);
+  --hp-line: var(--md-default-fg-color--lightest);
+  --hp-accent: #e5484d;
+}
+
+/* Let the landing page use the full width. */
+.md-main__inner { margin-top: 0; }
+.md-content { max-width: none; }
+.pipe-home .hp-section { padding: 3.5rem 0; }
+.pipe-home .hp-container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+.hp-hl { color: #e5484d; }
+
+/* ---------- hero ---------- */
+.hp-hero { padding-top: 2.5rem; }
+.hp-hero-grid {
+  display: grid; grid-template-columns: 1.05fr .95fr; gap: 2.5rem; align-items: center;
+}
+.hp-hero-badge {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .78rem; color: var(--hp-fg-2);
+  border: 1px solid var(--hp-line); border-radius: 999px; padding: .3rem .8rem;
+  margin-bottom: 1.4rem;
+}
+.hp-dot { width: .5rem; height: .5rem; border-radius: 50%; background: var(--hp-accent); display: inline-block; }
+.hp-hero-title { font-size: clamp(2rem, 4.5vw, 3.1rem); line-height: 1.08; letter-spacing: -.02em; margin: 0 0 1rem; font-weight: 700; }
+.hp-hero-sub { font-size: 1.1rem; color: var(--hp-fg-2); max-width: 34rem; margin: 0 0 1.8rem; }
+.hp-hero-actions { display: flex; gap: .7rem; flex-wrap: wrap; align-items: center; }
+.hp-hero-meta { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 1.6rem; font-size: .82rem; color: var(--hp-fg-3); }
+.hp-hero-meta strong { color: var(--hp-fg-2); }
+
+/* ---------- buttons ---------- */
+.hp-btn-primary, .hp-btn-outline {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .6rem 1.1rem; border-radius: 8px; font-size: .9rem; font-weight: 600;
+  text-decoration: none; cursor: pointer; border: 1px solid var(--hp-line);
+}
+.hp-btn-primary { background: var(--hp-accent); color: var(--md-primary-bg-color); border-color: var(--hp-accent); }
+.hp-btn-outline { background: transparent; color: var(--hp-fg); }
+.hp-btn-outline:hover { border-color: var(--hp-accent); color: var(--hp-accent); }
+.hp-btn-sm { padding: .4rem .7rem; font-size: .82rem; }
+.hp-dollar { opacity: .6; }
+
+/* ---------- code window / demo ---------- */
+.hp-code-window { border: 1px solid var(--hp-line); border-radius: 12px; overflow: hidden; background: var(--hp-bg-2); box-shadow: 0 8px 30px rgba(0,0,0,.08); }
+.hp-code-chrome { display: flex; align-items: center; gap: .8rem; padding: .6rem .9rem; border-bottom: 1px solid var(--hp-line); }
+.hp-dots span { width: .7rem; height: .7rem; border-radius: 50%; background: var(--hp-line); display: inline-block; margin-right: .3rem; }
+.hp-code-title { font-size: .82rem; color: var(--hp-fg-2); }
+.hp-code-body { padding: 1rem; font: .85rem/1.6 var(--md-code-font-family, monospace); }
+.hp-code-body .line { white-space: pre; }
+.tok-k { color: #c678dd; } .tok-t { color: #61afef; } .tok-m { color: #56b6c2; }
+.tok-s { color: #98c379; } .tok-cm { color: var(--hp-fg-3); font-style: italic; } .tok-num { color: #d19a66; }
+
+/* demo widget inside the code window */
+.hp-demo-label { display: block; font-size: .72rem; color: var(--hp-fg-3); margin-bottom: .3rem; }
+.hp-demo-input { width: 100%; padding: .5rem .6rem; border: 1px solid var(--hp-line); border-radius: 6px; background: var(--md-default-bg-color); color: var(--hp-fg); font: inherit; font-size: .85rem; }
+.hp-demo-actions { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; margin: .7rem 0; }
+.hp-demo-chunk { font-size: .75rem; color: var(--hp-fg-3); margin-left: auto; }
+.hp-demo-chunk input { width: 3.2rem; padding: .3rem; border: 1px solid var(--hp-line); border-radius: 6px; background: var(--md-default-bg-color); color: var(--hp-fg); font: inherit; }
+.hp-demo-out { margin: 0; padding: .7rem; border-radius: 6px; min-height: 2.4rem; background: var(--md-default-bg-color); border: 1px solid var(--hp-line); color: #2e7d32; white-space: pre-wrap; word-break: break-word; font-size: .78rem; }
+.hp-demo-out.error { color: #c62828; }
+
+/* ---------- features ---------- */
+.hp-section-title { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; letter-spacing: -.01em; margin: 0 0 2rem; text-align: center; }
+.hp-features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.hp-feature { border: 1px solid var(--hp-line); border-radius: 12px; padding: 1.3rem; display: flex; flex-direction: column; }
+.hp-feature h3 { margin: 0 0 .2rem; font-size: 1.15rem; }
+.hp-feature-tagline { color: var(--hp-accent); font-size: .85rem; font-weight: 600; margin-bottom: .6rem; }
+.hp-feature p { color: var(--hp-fg-2); font-size: .9rem; margin: 0 0 1rem; flex: 1; }
+.hp-feature-cta { margin-bottom: 1rem; }
+.hp-cta-link { font-size: .85rem; font-weight: 600; text-decoration: none; color: var(--hp-accent); }
+.hp-feature-code { background: var(--hp-bg-2); border: 1px solid var(--hp-line); border-radius: 8px; padding: .8rem; font: .78rem/1.6 var(--md-code-font-family, monospace); overflow-x: auto; }
+.hp-feature-code .line { white-space: pre; }
+
+/* ---------- two surfaces ---------- */
+.hp-eco-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+.hp-eco-title { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; margin: 0 0 1rem; }
+.hp-eco-desc { color: var(--hp-fg-2); margin: 0 0 1.4rem; }
+.hp-eco-right h3 { margin: 0 0 1rem; font-size: 1.05rem; }
+.hp-built-grid { display: grid; gap: .8rem; }
+.hp-built-item { border: 1px solid var(--hp-line); border-radius: 8px; padding: .8rem 1rem; }
+.hp-built-name { font-weight: 700; font-size: .95rem; }
+.hp-built-blurb { color: var(--hp-fg-2); font-size: .85rem; margin-top: .2rem; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .hp-hero-grid, .hp-eco-grid { grid-template-columns: 1fr; }
+  .hp-features-grid { grid-template-columns: 1fr; }
+}

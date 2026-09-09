@@ -1,0 +1,183 @@
+{% extends "main.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/home.css' | url }}">
+{% endblock %}
+
+{% block content %}
+<div class="pipe-home">
+
+  <!-- ===== HERO ===== -->
+  <section class="hp-section hp-hero">
+    <div class="hp-container hp-hero-grid">
+      <div class="hp-hero-text">
+        <div class="hp-hero-badge">
+          <span class="hp-dot"></span>
+          pipe {{ config.extra.version | default('0.1.0') }} &mdash; atomic, data-in / data-out ops
+        </div>
+
+        <h1 class="hp-hero-title">
+          <span class="hp-hl">Compose</span>, don&rsquo;t glue,<br>your operations.
+        </h1>
+
+        <p class="hp-hero-sub">
+          <!-- TODO: hero subtitle -->
+          A pure, dependency-free core of atomic operations that compose into
+          chains. Import it as a library, or serve that same core as an API on
+          your own cloud &mdash; no rewrite.
+        </p>
+
+        <div class="hp-hero-actions">
+          <a href="{{ 'install/' | url }}" class="hp-btn-primary">
+            <span class="hp-dollar">$</span> pip install pipe-broker
+          </a>
+          <a href="{{ 'programming-model/' | url }}" class="hp-btn-outline">
+            Getting Started &rarr;
+          </a>
+        </div>
+
+        <div class="hp-hero-meta">
+          <span><strong>python</strong> &ge; 3.11</span>
+          <span>MIT license</span>
+          <span><a href="https://github.com/amaagracodes/pipe">github.com/amaagracodes/pipe</a></span>
+        </div>
+      </div>
+
+      <!-- Code window doubles as the live demo -->
+      <div class="hp-hero-code">
+        <div class="hp-code-window">
+          <div class="hp-code-chrome">
+            <div class="hp-dots"><span></span><span></span><span></span></div>
+            <div class="hp-code-title"><strong>try it — GET /echo</strong></div>
+          </div>
+          <div class="hp-code-body" id="pipe-demo">
+            <label for="pipe-demo-input" class="hp-demo-label">Input data</label>
+            <input id="pipe-demo-input" type="text" value="the quick brown fox"
+                   autocomplete="off" spellcheck="false" class="hp-demo-input" />
+            <div class="hp-demo-actions">
+              <button id="pipe-demo-buffered" class="hp-btn-primary hp-btn-sm">GET /echo</button>
+              <button id="pipe-demo-stream" class="hp-btn-outline hp-btn-sm">GET /echo/stream</button>
+              <label class="hp-demo-chunk">chunk
+                <input id="pipe-demo-chunk" type="number" min="1" max="64" value="4" />
+              </label>
+            </div>
+            <pre id="pipe-demo-out" class="hp-demo-out" aria-live="polite">&#8617; output appears here</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THREE PRIMITIVES ===== -->
+  <section class="hp-section hp-features">
+    <div class="hp-container">
+      <h2 class="hp-section-title">
+        Build systems from reusable <span class="hp-hl">primitives</span>.
+      </h2>
+
+      <div class="hp-features-grid">
+        <!-- Pipe -->
+        <div class="hp-feature">
+          <h3>Pipe</h3>
+          <div class="hp-feature-tagline">One op, one job.</div>
+          <p>
+            <!-- TODO -->
+            A pure function with a single responsibility &mdash; no I/O, no
+            state, no framework. Runs anywhere Python does.
+          </p>
+          <div class="hp-feature-cta">
+            <a href="{{ 'programming-model/' | url }}" class="hp-cta-link">Programming model &rarr;</a>
+          </div>
+          <div class="hp-feature-code">
+            <div class="line"><span class="tok-k">class</span> <span class="tok-t">Upper</span>(pipe.Pipe):</div>
+            <div class="line">    <span class="tok-k">def</span> <span class="tok-m">forward</span>(self, data: <span class="tok-t">str</span>) -&gt; <span class="tok-t">str</span>:</div>
+            <div class="line">        <span class="tok-k">return</span> data.upper()</div>
+          </div>
+        </div>
+
+        <!-- Chain -->
+        <div class="hp-feature">
+          <h3>Chain</h3>
+          <div class="hp-feature-tagline">Compose with <code>&gt;&gt;</code>.</div>
+          <p>
+            <!-- TODO -->
+            Sequencing lives only in a chain. Output of each stage feeds the
+            next; ops never learn about each other.
+          </p>
+          <div class="hp-feature-cta">
+            <a href="{{ 'tutorials/composing/' | url }}" class="hp-cta-link">Composing &rarr;</a>
+          </div>
+          <div class="hp-feature-code">
+            <div class="line"><span class="tok-cm"># detect, then redact</span></div>
+            <div class="line">pipeline = DetectPII(<span class="tok-s">"us"</span>) &gt;&gt; Redact()</div>
+            <div class="line">pipeline(text)</div>
+          </div>
+        </div>
+
+        <!-- Experts -->
+        <div class="hp-feature">
+          <h3>Experts</h3>
+          <div class="hp-feature-tagline">Domain expertise as ops.</div>
+          <p>
+            <!-- TODO -->
+            Jurisdiction-aware domain ops over one uniform envelope. Legal
+            today; more domains to come.
+          </p>
+          <div class="hp-feature-cta">
+            <a href="{{ 'tutorials/legal-pipeline/' | url }}" class="hp-cta-link">A legal pipeline &rarr;</a>
+          </div>
+          <div class="hp-feature-code">
+            <div class="line"><span class="tok-k">from</span> pipe.lib.experts.legal <span class="tok-k">import</span> DetectPII</div>
+            <div class="line">&nbsp;</div>
+            <div class="line">DetectPII(<span class="tok-s">"us/ny"</span>)(contract)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TWO SURFACES ===== -->
+  <section class="hp-section hp-ecosystem">
+    <div class="hp-container">
+      <div class="hp-eco-grid">
+        <div class="hp-eco-left">
+          <h2 class="hp-eco-title">
+            Same core. <span class="hp-hl">Two surfaces.</span>
+          </h2>
+          <p class="hp-eco-desc">
+            <!-- TODO -->
+            Import pipe as a Python library, or serve that exact same core as an
+            HTTP API on your own infrastructure. No rewrite, no lock-in &mdash;
+            you own the keys, the data boundary, and the deployment.
+          </p>
+          <div class="hp-hero-actions">
+            <a href="{{ 'api/library/' | url }}" class="hp-btn-outline">Library &rarr;</a>
+            <a href="{{ 'api/rest/' | url }}" class="hp-btn-outline">REST API &rarr;</a>
+          </div>
+        </div>
+        <div class="hp-eco-right">
+          <h3>Serve it anywhere</h3>
+          <div class="hp-built-grid">
+            <div class="hp-built-item">
+              <div class="hp-built-name">Edge</div>
+              <div class="hp-built-blurb">Cloudflare Python Worker &mdash; pure ops at the edge</div>
+            </div>
+            <div class="hp-built-item">
+              <div class="hp-built-name">Container</div>
+              <div class="hp-built-blurb">Cloud Run, ECS, Fly &mdash; the shipped Dockerfile</div>
+            </div>
+            <div class="hp-built-item">
+              <div class="hp-built-name">Anywhere</div>
+              <div class="hp-built-blurb">It&rsquo;s just an ASGI app &mdash; any box that runs Python</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script src="{{ 'assets/demo.js' | url }}" defer></script>
+{% endblock %}

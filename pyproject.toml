@@ -24,8 +24,12 @@ dependencies = [
 Repository = "https://github.com/amaagracodes/pipe"
 
 # Dev-only tooling (uv reads this): tests + a local ASGI runner.
+# The website is built with MkDocs Material (the same static-site generator
+# DSPy's docs use). It is a docs/build-time dependency only — the runtime
+# service just serves the already-built static output from public/.
 [dependency-groups]
 dev = ["pytest>=8", "uvicorn>=0.30"]
+docs = ["mkdocs-material>=9.5"]
 
 [build-system]
 requires = ["poetry-core>=2.0"]

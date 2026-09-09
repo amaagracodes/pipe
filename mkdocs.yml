@@ -1,0 +1,115 @@
+site_name: pipe
+site_description: >-
+  Atomic, data-in/data-out operations for multilingual translation and
+  domain-expertise knowledge export.
+site_url: https://github.com/amaagracodes/pipe
+repo_url: https://github.com/amaagracodes/pipe
+repo_name: amaagracodes/pipe
+
+# Markdown content lives in docs/. The built static site is written to public/,
+# which the FastAPI app serves at "/" (StaticFiles) and the Dockerfile ships
+# into the Cloud Run image. So `mkdocs build` regenerates the deployed site.
+docs_dir: docs
+site_dir: public
+
+# Layout mirrors DSPy's docs (dspy.ai): flat Overview, then top-level sections
+# as navigation tabs; Inter/Fira Mono fonts; white/black light + black/lime
+# dark palette; navigation.footer + social + copyright.
+nav:
+  - Overview: index.md
+  - Getting Started:
+      - Installation: install.md
+      - Programming model: programming-model.md
+  - Diving Deeper:
+      - Architecture: diving-deeper/architecture.md
+      - Pipes and chains in depth: diving-deeper/pipes-and-chains.md
+      - Ambient context & scope: diving-deeper/context-and-scope.md
+      - The Prediction envelope: diving-deeper/prediction-envelope.md
+      - Extending Pipe: diving-deeper/extending.md
+  - Tutorials:
+      - Tutorials Overview: tutorials/index.md
+      - Your first op: tutorials/first-op.md
+      - Streaming: tutorials/streaming.md
+      - Composing a pipeline: tutorials/composing.md
+      - A legal pipeline: tutorials/legal-pipeline.md
+  - API Reference:
+      - API Reference: api/index.md
+      - Library: api/library.md
+      - REST API: api/rest.md
+
+theme:
+  name: material
+  custom_dir: overrides
+  font:
+    text: Inter
+    code: Fira Mono
+  features:
+    - navigation.tabs
+    - navigation.path
+    - navigation.indexes
+    - navigation.expand
+    - toc.follow
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+    - navigation.footer
+  language: en
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+      primary: white
+      accent: black
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+      primary: black
+      accent: lime
+  icon:
+    repo: fontawesome/brands/git-alt
+    edit: material/pencil
+    view: material/eye
+
+extra_css:
+  - assets/extra.css
+
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-\.]+'
+
+extra:
+  version: "0.1.0"
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/amaagracodes/pipe
+
+markdown_extensions:
+  - smarty
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+copyright: >-
+  &copy; 2026 <a href="https://github.com/amaagracodes" target="_blank" rel="noopener">pipe</a>
