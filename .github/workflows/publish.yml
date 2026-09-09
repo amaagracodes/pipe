@@ -1,0 +1,34 @@
+name: Publish to PyPI
+
+# Publishes the package to PyPI via Trusted Publishing (OIDC) — no API token
+# or stored secret. Triggered by pushing a version tag, e.g.:
+#     git tag v0.1.1 && git push origin v0.1.1
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    # Must match the environment registered on the PyPI Trusted Publisher.
+    environment: pypi
+    permissions:
+      # Required for Trusted Publishing: lets the job mint an OIDC token that
+      # PyPI exchanges for a short-lived upload credential.
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Build sdist and wheel
+        run: uv build
+
+      - name: Publish to PyPI
+        # No credentials passed: the action uses the OIDC token, which PyPI
+        # accepts because of the trusted publisher (owner amaagracodes, repo
+        # pipe, workflow publish.yml, environment pypi).
+        uses: pypa/gh-action-pypi-publish@release/v1
