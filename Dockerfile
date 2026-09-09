@@ -16,7 +16,9 @@ WORKDIR /app
 # Install dependencies first (better layer caching). All runtime deps
 # (FastAPI + Jinja2 + uvicorn + DSPy) are declared in [project].dependencies,
 # so a plain install pulls the whole stack — no optional extras to forget.
-COPY pyproject.toml README.md ./
+# LICENSE is copied too: pyproject declares license-files = ["LICENSE"], so the
+# build backend needs it present or metadata generation fails.
+COPY pyproject.toml README.md LICENSE ./
 COPY src ./src
 RUN pip install . uvicorn
 
