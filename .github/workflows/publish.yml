@@ -20,7 +20,34 @@ jobs:
       # PyPI exchanges for a short-lived upload credential.
       id-token: write
     steps:
+      # Full history so we can check which branch contains the tagged commit.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Guard: a version tag alone is not enough to publish. The tagged commit
+      # must live on the release branch (development), and the tag (vX.Y.Z)
+      # must match the version declared in pyproject.toml. Either mismatch
+      # fails the release before anything is uploaded.
+      - name: Verify tag is on the release branch and matches the version
+        run: |
+          set -euo pipefail
+          RELEASE_BRANCH=development
+          TAG="${GITHUB_REF_NAME}"                 # e.g. v0.1.1
+          TAG_VERSION="${TAG#v}"                    # e.g. 0.1.1
+
+          git fetch origin "$RELEASE_BRANCH" --quiet
+          if ! git merge-base --is-ancestor "$GITHUB_SHA" "origin/$RELEASE_BRANCH"; then
+            echo "::error::Tag $TAG ($GITHUB_SHA) is not contained in origin/$RELEASE_BRANCH; refusing to publish."
+            exit 1
+          fi
+
+          PYPROJECT_VERSION="$(grep -m1 '^version' pyproject.toml | sed -E 's/.*"([^"]+)".*/\1/')"
+          if [ "$TAG_VERSION" != "$PYPROJECT_VERSION" ]; then
+            echo "::error::Tag version ($TAG_VERSION) != pyproject version ($PYPROJECT_VERSION); refusing to publish."
+            exit 1
+          fi
+          echo "OK: $TAG on $RELEASE_BRANCH, version $PYPROJECT_VERSION."
 
       - name: Set up uv
         uses: astral-sh/setup-uv@v5
