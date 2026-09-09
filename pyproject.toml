@@ -1,11 +1,22 @@
 [project]
 name = "pipe-broker"
-version = "0.1.0"
+version = "0.1.1"
 description = "Atomic, data-in/data-out operations for multilingual translation and domain-expertise knowledge export."
-authors = [{ name = "amaagracodes" }]
+authors = [{ name = "Aman Agrawal", email = "workwithamaagra@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "MIT" }
+license = "LicenseRef-PolyForm-Noncommercial-1.0.0"
+license-files = ["LICENSE"]
+keywords = ["pipe", "operations", "translation", "nlp", "fastapi", "atomic", "streaming"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Linguistic",
+]
 # All runtime deps are installed together — one install path, no optional
 # extras to forget. The service (Cloud Run, real CPython) always needs the
 # serving layer (FastAPI/Jinja2/uvicorn) and the LLM backend (DSPy, which
@@ -21,7 +32,10 @@ dependencies = [
 ]
 
 [project.urls]
+Homepage = "https://github.com/amaagracodes/pipe"
 Repository = "https://github.com/amaagracodes/pipe"
+Documentation = "https://github.com/amaagracodes/pipe"
+Issues = "https://github.com/amaagracodes/pipe/issues"
 
 # Dev-only tooling (uv reads this): tests + a local ASGI runner.
 # The website is built with MkDocs Material (the same static-site generator
