@@ -1,6 +1,6 @@
 [project]
 name = "pipe-broker"
-version = "0.1.1"
+version = "0.1.2"
 description = "Atomic, data-in/data-out operations for multilingual translation and domain-expertise knowledge export."
 authors = [{ name = "Aman Agrawal", email = "workwithamaagra@gmail.com" }]
 readme = "README.md"
@@ -32,9 +32,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/amaagracodes/pipe"
+Homepage = "https://pipe.amaagra.com"
+Documentation = "https://pipe.amaagra.com"
 Repository = "https://github.com/amaagracodes/pipe"
-Documentation = "https://github.com/amaagracodes/pipe"
 Issues = "https://github.com/amaagracodes/pipe/issues"
 
 # Dev-only tooling (uv reads this): tests + a local ASGI runner.
