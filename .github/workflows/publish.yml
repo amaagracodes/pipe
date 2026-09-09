@@ -1,13 +1,14 @@
 name: Publish to PyPI
 
 # Publishes the package to PyPI via Trusted Publishing (OIDC) — no API token
-# or stored secret. Triggered by pushing a version tag, e.g.:
-#     git tag v0.1.1 && git push origin v0.1.1
+# or stored secret. This never runs on its own: it fires only when you
+# deliberately create and push a version tag (a ref), e.g.:
+#     git tag v0.1.1
+#     git push origin v0.1.1
 on:
   push:
     tags:
       - "v*"
-  workflow_dispatch:
 
 jobs:
   publish:
