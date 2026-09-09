@@ -14,7 +14,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     # Must match the environment registered on the PyPI Trusted Publisher.
-    environment: pypi
+    environment: release
     permissions:
       # Required for Trusted Publishing: lets the job mint an OIDC token that
       # PyPI exchanges for a short-lived upload credential.
@@ -61,5 +61,5 @@ jobs:
       - name: Publish to PyPI
         # No credentials passed: the action uses the OIDC token, which PyPI
         # accepts because of the trusted publisher (owner amaagracodes, repo
-        # pipe, workflow publish.yml, environment pypi).
+        # pipe, workflow publish.yml, environment release).
         uses: pypa/gh-action-pypi-publish@release/v1
