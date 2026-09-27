@@ -16,6 +16,8 @@
         <link rel="prev" href="../library/">
       
       
+        <link rel="next" href="../routes/">
+      
       
         
       
@@ -301,6 +303,28 @@
     
   
   Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../product/deep-dives/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Product Deep Dives
 
         </a>
       </li>
@@ -934,6 +958,170 @@
       
   
   
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../product/deep-dives/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product Deep Dives
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Product Deep Dives
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/deep-dives/underexploited-enterprise-professions-report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Master Strategic Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/deep-dives/medtech-regulatory-console/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MedTech Regulatory Console
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/deep-dives/trade-compliance-console/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trade & Customs Console
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -943,6 +1131,8 @@
       
         
           
+        
+      
         
       
         
@@ -963,7 +1153,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -985,14 +1175,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1185,6 +1375,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Route Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1404,8 +1622,16 @@ an edge worker. &ldquo;Same core, no rewrite.&rdquo;</p>
 provider keys (<code>OPENROUTER_API_KEY</code>, <code>AVIATIONSTACK_API_KEY</code>) — all read from
 <em>your</em> environment.</p>
 <h2 id="routes">Routes<a class="headerlink" href="#routes" title="Permanent link">&para;</a></h2>
-<p>TODO: the endpoints exposed by the adapter. Interactive OpenAPI at <code>/docs</code>, raw
-spec at <code>/openapi.json</code>.</p>
+<p>The REST API endpoints exposed by the adapter are fully documented via OpenAPI.</p>
+<ul>
+<li><strong>Interactive Swagger UI:</strong> <code>/docs</code></li>
+<li><strong>Interactive ReDoc:</strong> <code>/redoc</code></li>
+<li><strong>Raw OpenAPI Specification:</strong> <a href="../openapi.json">openapi.json</a> | <a href="../openapi.yaml">openapi.yaml</a></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Automated Specification Generation</p>
+<p>The OpenAPI specifications (<code>openapi.json</code> and <code>openapi.yaml</code>) are automatically synchronized from the live FastAPI routes during every <code>mkdocs</code> build via a pre-build hook (<code>hooks/dump_openapi.py</code>), or on demand via <code>python -m pipe.api.openapi</code>.</p>
+</div>
 <h3 id="ops">Ops<a class="headerlink" href="#ops" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1555,6 +1781,22 @@ key is unavailable, so they are safe to probe.</p>
             </div>
           </a>
         
+        
+          
+          <a href="../routes/" class="md-footer__link md-footer__link--next" aria-label="Next: Route Reference">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Route Reference
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
         
       </nav>
     

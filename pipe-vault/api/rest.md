@@ -37,8 +37,14 @@ provider keys (`OPENROUTER_API_KEY`, `AVIATIONSTACK_API_KEY`) — all read from
 
 ## Routes
 
-TODO: the endpoints exposed by the adapter. Interactive OpenAPI at `/docs`, raw
-spec at `/openapi.json`.
+The REST API endpoints exposed by the adapter are fully documented via OpenAPI.
+
+- **Interactive Swagger UI:** `/docs`
+- **Interactive ReDoc:** `/redoc`
+- **Raw OpenAPI Specification:** [openapi.json](openapi.json) | [openapi.yaml](openapi.yaml)
+
+!!! tip "Automated Specification Generation"
+    The OpenAPI specifications (`openapi.json` and `openapi.yaml`) are automatically synchronized from the live FastAPI routes during every `mkdocs` build via a pre-build hook (`hooks/dump_openapi.py`), or on demand via `python -m pipe.api.openapi`.
 
 ### Ops
 

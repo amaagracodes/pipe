@@ -1,0 +1,138 @@
+{
+  "nodes": [
+    {
+      "id": "node-l5",
+      "x": 200,
+      "y": -300,
+      "width": 480,
+      "height": 180,
+      "type": "text",
+      "text": "### Layer 5: Enterprise Console UX\n- **Dual-Pane Split-Screen:** Source Document vs Generated Output\n- **Span-Anchored Grounding:** Hover-over highlights directly in PDF AST\n- **Atomic Review:** Accept / Reject individual diffs (no prompt-looping)\n- **Audit Export:** One-click compliance memo generation",
+      "color": "4"
+    },
+    {
+      "id": "node-l4",
+      "x": 200,
+      "y": -80,
+      "width": 480,
+      "height": 160,
+      "type": "text",
+      "text": "### Layer 4: Pipeline Assembly & Choreography\n- **Composable DAG:** `op1 >> op2 >> op3` via `pipe.lib.experts.workflow`\n- **Prediction Envelope:** Preserves text, detections, severity, and audit trail\n- **Checkpointing & Determinism:** Step-level inspection and replayability",
+      "color": "3"
+    },
+    {
+      "id": "node-l3",
+      "x": 200,
+      "y": 140,
+      "width": 480,
+      "height": 160,
+      "type": "text",
+      "text": "### Layer 3: Normative Logic & Rules Engine\n- **Lex Specialis Precedence:** Specific rules override general standards\n- **Jurisdiction & Facet Scoping:** Territory, product class, legal facet\n- **Severity Gates:** Non-stochastic blocking of unsafe / incomplete filings",
+      "color": "2"
+    },
+    {
+      "id": "node-l2",
+      "x": 200,
+      "y": 360,
+      "width": 480,
+      "height": 160,
+      "type": "text",
+      "text": "### Layer 2: Atomic Functional AI Operators\n- **Typed Micro-Actions:** `AIBasedExpert[InputModel, OutputModel]`\n- **Pydantic Validation:** Reified I/O schemas with strict JSON guarantees\n- **Single Responsibility:** Spotting, comparing, extracting, or summarizing",
+      "color": "1"
+    },
+    {
+      "id": "node-l1",
+      "x": 200,
+      "y": 580,
+      "width": 480,
+      "height": 160,
+      "type": "text",
+      "text": "### Layer 1: Deterministic Detection & Policy Registry\n- **ScopedRegistry:** Scoped detection rules tagged by authority rank\n- **PII / Privilege Masking:** `Redactor` applying offsets right-to-left\n- **Microsecond Execution:** Non-LLM deterministic guardrails",
+      "color": "6"
+    },
+    {
+      "id": "node-l0",
+      "x": 200,
+      "y": 800,
+      "width": 480,
+      "height": 160,
+      "type": "text",
+      "text": "### Layer 0: Ingestion & Substrate Layer\n- **Structural Parsing:** PDF, DOCX, XLSX, Scans converted to ASTs\n- **Coordinate Tracking:** Bounding-box and character offset fidelity\n- **Multi-Modal Tables:** Preserves multi-column hierarchical headers",
+      "color": "5"
+    },
+    {
+      "id": "node-w1",
+      "x": 760,
+      "y": -200,
+      "width": 380,
+      "height": 240,
+      "type": "text",
+      "text": "### Wave 1: Immediate Beachheads (Tier 1)\n- **MedTech Regulatory Affairs**\n  - FDA 510(k) Substantial Equivalence\n  - 54-Item RTA Checklist Auditor\n- **Customs & Trade Compliance**\n  - 10-Digit HTS Classification\n  - Section / Chapter Exclusion Notes\n- **GovCon Defense Procurement**\n  - FAR / DFARS Flow-Down Compliance\n- **Reinsurance Treaty Underwriting**\n  - Manuscript Slip Wording Reconciler",
+      "color": "4"
+    },
+    {
+      "id": "node-w2",
+      "x": 760,
+      "y": 120,
+      "width": 380,
+      "height": 220,
+      "type": "text",
+      "text": "### Wave 2: Enterprise Expanders (Tier 2)\n- **Clinical Trial TMF Auditing** (Protocol to Binder)\n- **Hospital Denial Appeals** (Chart vs Coverage Policy)\n- **Aviation MRO Part Tracing** (Life-Limited Parts)\n- **Transfer Pricing & State Tax** (Intercompany FAR)\n- **ESG / CSRD Assurance** (Primary Evidence Audit)",
+      "color": "3"
+    },
+    {
+      "id": "node-w3",
+      "x": 760,
+      "y": 420,
+      "width": 380,
+      "height": 200,
+      "type": "text",
+      "text": "### Wave 3: Hybrid Moats (Tier 3)\n- **Construction Quantity Surveying** (Daily Log vs P6)\n- **NEPA Environmental Permitting** (Cross-Chapter GIS)\n- **FERC Grid Interconnection** (System Impact Costs)",
+      "color": "2"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-0-1",
+      "fromNode": "node-l0",
+      "fromSide": "top",
+      "toNode": "node-l1",
+      "toSide": "bottom"
+    },
+    {
+      "id": "edge-1-2",
+      "fromNode": "node-l1",
+      "fromSide": "top",
+      "toNode": "node-l2",
+      "toSide": "bottom"
+    },
+    {
+      "id": "edge-2-3",
+      "fromNode": "node-l2",
+      "fromSide": "top",
+      "toNode": "node-l3",
+      "toSide": "bottom"
+    },
+    {
+      "id": "edge-3-4",
+      "fromNode": "node-l3",
+      "fromSide": "top",
+      "toNode": "node-l4",
+      "toSide": "bottom"
+    },
+    {
+      "id": "edge-4-5",
+      "fromNode": "node-l4",
+      "fromSide": "top",
+      "toNode": "node-l5",
+      "toSide": "bottom"
+    },
+    {
+      "id": "edge-l5-w1",
+      "fromNode": "node-l5",
+      "fromSide": "right",
+      "toNode": "node-w1",
+      "toSide": "left"
+    }
+  ]
+}

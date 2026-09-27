@@ -6,11 +6,23 @@ site_url: https://github.com/amaagracodes/pipe
 repo_url: https://github.com/amaagracodes/pipe
 repo_name: amaagracodes/pipe
 
-# Markdown content lives in docs/. The built static site is written to public/,
+# Markdown content lives in pipe-vault/. The built static site is written to public/,
 # which the FastAPI app serves at "/" (StaticFiles) and the Dockerfile ships
 # into the Cloud Run image. So `mkdocs build` regenerates the deployed site.
-docs_dir: docs
+docs_dir: pipe-vault
 site_dir: public
+
+exclude_docs: |
+  .obsidian/**
+  **/.obsidian/**
+  templates/**
+  **/templates/**
+  canvas/**
+  **/canvas/**
+  _*
+  _*/**
+  **/_*
+  **/_*/**
 
 # Layout mirrors DSPy's docs (dspy.ai): flat Overview, then top-level sections
 # as navigation tabs; Inter/Fira Mono fonts; white/black light + black/lime
@@ -32,10 +44,16 @@ nav:
       - Streaming: tutorials/streaming.md
       - Composing a pipeline: tutorials/composing.md
       - A legal pipeline: tutorials/legal-pipeline.md
+  - Product Deep Dives:
+      - Deep Dives Overview: product/deep-dives/index.md
+      - Master Strategic Report: product/deep-dives/underexploited-enterprise-professions-report.md
+      - MedTech Regulatory Console: product/deep-dives/medtech-regulatory-console.md
+      - Trade & Customs Console: product/deep-dives/trade-compliance-console.md
   - API Reference:
       - API Reference: api/index.md
       - Library: api/library.md
       - REST API: api/rest.md
+      - Route Reference: api/routes.md
 
 theme:
   name: material
@@ -77,6 +95,9 @@ theme:
 
 extra_css:
   - assets/extra.css
+
+hooks:
+  - hooks/dump_openapi.py
 
 plugins:
   - search:
